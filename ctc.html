@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crack The Code</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        h1, h2 {
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            flex-direction: column;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .register-btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #f7b733, #fc4a1a);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .register-btn:hover {
+            background: linear-gradient(135deg, #fc4a1a, #f7b733);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about-heading {
+            text-align: center;
+            padding: 20px;
+            background-color: #eaeaea;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .about-heading h1 {
+            font-size: 2.5rem;
+            color: #222;
+        }
+
+        .about-section {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .about-section ul {
+            list-style-type: square;
+            padding-left: 20px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Evaluation Section */
+        .evaluation-heading {
+            text-align: center;
+            padding: 20px;
+            background-color: #eaeaea;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .evaluation-heading h1 {
+            font-size: 2.5rem;
+            color: #222;
+        }
+
+        .evaluation-section {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .criteria {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .criteria-item {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .criteria-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .criteria-item h2 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .criteria-item p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .criteria-item img {
+            margin-top: 10px;
+            max-width: 80px;
+        }
+
+        .evaluation-section h2 {
+            font-size: 1.6rem;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .evaluation-section ul {
+            list-style-type: square;
+            padding-left: 20px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Event Schedule Section */
+        .schedule-heading {
+            text-align: center;
+            padding: 20px;
+            background-color: #eaeaea;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .schedule-heading h1 {
+            font-size: 2.5rem;
+            color: #222;
+        }
+
+        .schedule-section {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .round {
+            width: 45%;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .round:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .round h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .round p {
+            font-size: 1.2rem;
+        }
+
+        .round1 {
+            background-color: #ff7043;
+        }
+
+        .round2 {
+            background-color: #64b5f6;
+        }
+        /* Certification and Prizes Section */
+        .certification-prizes {
+            background: linear-gradient(135deg, hsl(89, 85%, 79%), hsl(90, 65%, 73%));
+            padding: 50px 20px;
+            text-align: center;
+            color: #e80c0c;
+        }
+
+        .certification-prizes h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .certification-prizes .certificate-box, .prizes-box {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .certificate-box div, .prizes-box div {
+            background-color: hsl(49, 43%, 79%);
+            color: #e55555;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certificate-box div:hover, .prizes-box div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px #70262633;
+        }
+
+        .certificate-box div h3, .prizes-box div h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: hsl(120, 4%, 13%);
+        }
+
+        .certificate-box div p, .prizes-box div p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .certificate-box div .icon, .prizes-box div .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .certification-prizes .discount-coupons {
+            background-color: hwb(77 47% 27%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .discount-coupons h2 {
+            font-size: 1.8rem;
+            color: hsl(37, 84%, 42%);
+        }
+
+        .discount-coupons p {
+            font-size: 1.2rem;
+        }
+
+        /* Styling for Prize Sections */
+        .certification-prizes .prizes-box div {
+            background: #bddecc;
+        }
+
+        /* Partners and Sponsors Section */
+        .partners-sponsors {
+            background: linear-gradient(135deg, #7979b8, #151f2b);
+            padding: 50px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .partners-sponsors h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .partners-sponsors .partner-box {
+            display: flex;
+            justify-content: space-around;
+            gap: 50px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .partner-box .partner {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .partner-box .partner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .partner-box .partner img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .partner-box .partner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: hsl(148, 96%, 11%);
+        }
+        /* Contact Us Section Styles */
+    .contact-us {
+        background-color: #f9f9f9;
+        padding: 50px 20px;
+        text-align: center;
+        color: #333;
+    }
+
+    .contact-us h1 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    .team-members {
+        display: flex;
+        justify-content: space-around;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+
+    .member {
+        width: 45%;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        transition: transform 0.3s;
+    }
+
+    .member h2 {
+        font-size: 1.8rem;
+        color: #307950;
+        margin-bottom: 10px;
+    }
+
+    .member p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .member a {
+        color: #2f4139;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .member a:hover {
+        color: #4db8ff;
+    }
+
+    .member:hover {
+        transform: translateY(-5px);
+    }
+
+    .organized-by {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .organized-by h2 {
+        font-size: 2rem;
+        color: hsl(172, 13%, 25%);
+    }
+
+    .organized-by p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .organized-by a {
+        display: inline-block;
+        margin-top: 20px;
+    }
+    footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Optional, for consistent vertical centering */
+}
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="https://github.com/adarsh9554/bandipur-house/blob/main/hero.jpg?raw=true" alt="Hero Image" class="hero-img">
+        <a href="https://forms.gle/J1nykjXZt7ZBKex56" class="register-btn">Register Now</a>
+    </header>
+
+    <!-- About Crack The Code Section -->
+    <section class="about-heading">
+        <h1>About Crack The Code</h1>
+    </section>
+    <section class="about-section">
+        <p>
+            We are excited to present "Crack The Code," a two-phase coding and hackathon event hosted by Bandipur House and designed to challenge and inspire students at a pan-BS level. The event will take place on 27th and 29th December, beginning with an elimination round where participants will compete in a rigorous coding contest, testing their problem-solving skills and algorithmic knowledge.
+        </p>
+        <ul>
+            <li><strong>Phase 1: Elimination Round:</strong> Coding Contest to assess problem-solving skills and algorithmic knowledge.</li>
+            <li><strong>Phase 2: Final Round (Hackathon):</strong> A real-world project-based problem-solving challenge to encourage creativity and technical expertise.</li>
+            <li><strong>When:</strong> 27th & 29th December</li>
+            <li><strong>Who Can Participate:</strong> Open to all students at the pan-BS level.</li>
+            <li><strong>Host:</strong> Bandipur House</li>
+        </ul>
+        <p>
+            The top performers will advance to the final round, where they will tackle real-world project-based problems, applying their technical expertise to create innovative solutions under time constraints. Hosted by Bandipur House, this event fosters creativity, collaboration, and a taste of real-world project development and presentation.
+        </p>
+    </section>
+
+    <!-- Evaluation Section -->
+    <section class="evaluation-heading">
+        <h1>Evaluation Criteria</h1>
+    </section>
+    <section class="evaluation-section">
+        <p>
+            The evaluation of participants will be conducted using an automated, certified judging and analytics system integrated into the event platform. This system ensures consistent and objective evaluation, focusing on key criteria that are essential for success in both rounds of the competition.
+        </p>
+
+        <div class="criteria">
+            <div class="criteria-item" style="background-color: #ffb74d;">
+                <h2>Problem-Solving Skills</h2>
+                <p><strong>Key Focus:</strong> Accuracy, efficiency, and optimization of solutions.</p>
+                <img src="https://www.clipartmax.com/png/middle/258-2585365_problem-solving-icon-problem-solving.png" alt="Problem-Solving Icon">
+            </div>
+            <div class="criteria-item" style="background-color: #81c784;">
+                <h2>Innovation</h2>
+                <p><strong>Key Focus:</strong> Creativity and originality, especially in the Hackathon round.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/6213/6213841.png" alt="Innovation Icon">
+            </div>
+            <div class="criteria-item" style="background-color: #64b5f6;">
+                <h2>Code Quality</h2>
+                <p><strong>Key Focus:</strong> Readability, structure, and maintainability of code.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/1541/1541537.png" alt="Code Quality Icon">
+            </div>
+            <div class="criteria-item" style="background-color: #ff80ab;">
+                <h2>Collaboration & Presentation</h2>
+                <p><strong>Key Focus:</strong> Ability to communicate and present solutions, especially in the final round.</p>
+                <img src="https://w7.pngwing.com/pngs/124/507/png-transparent-computer-icons-presentation-text-presentation-logo-thumbnail.png" alt="Collaboration & Presentation Icon">
+            </div>
+        </div>
+
+        <!-- Number of Rounds -->
+        <section class="rounds-section">
+            <h2>Number of Rounds</h2>
+            <ul>
+                <li><strong>Round 1:</strong> Elimination Round - 27th December 2024</li>
+                <li><strong>Round 2:</strong> Hackathon Round - 29th December 2024</li>
+            </ul>
+        </section>
+    </section>
+
+    <!-- Event Schedule Section -->
+    <section class="schedule-heading">
+        <h1>Event Schedule</h1>
+    </section>
+    <section class="schedule-section">
+        <div class="round round1">
+            <h2>Round 1: Elimination Round</h2>
+            <p>27th December 2024</p>
+            <p>A rigorous coding contest to test your problem-solving skills and algorithmic knowledge.</p>
+        </div>
+        <div class="round round2">
+            <h2>Round 2: Hackathon Round</h2>
+            <p>29th December 2024</p>
+            <p>Work on real-world project-based problems, applying your technical expertise to create innovative solutions under time constraints.</p>
+        </div>
+    </section>
+
+    <!-- Certification and Prizes Section -->
+    <section class="certification-prizes">
+        <h1>Certification & Prizes</h1>
+
+        <!-- Certificate Box -->
+        <div class="certificate-box">
+            <div>
+                <div class="icon">🏅</div>
+                <h3>Participation Certificate</h3>
+                <p>All participants will receive a certificate of participation from Bandipur.</p>
+            </div>
+            <div>
+                <div class="icon">🥇</div>
+                <h3>Winner Certificate</h3>
+                <p>The top 1st, 2nd, and 3rd place finishers will receive certificates of winner.</p>
+            </div>
+            <div>
+                <div class="icon">🌟</div>
+                <h3>Excellence Certificates</h3>
+                <p>The next seven highest performers will receive certificates of excellence for their outstanding achievements.</p>
+            </div>
+        </div>
+
+        <!-- Prizes Box -->
+        <div class="prizes-box">
+            <div>
+                <h3>GeeksforGeeks Prizes</h3>
+                <p>Rs. 2000 GeeksforGeeks discount coupon for the winners.<br>Rs. 300 discount coupon for all participants.</p>
+                <p><strong>1st Place:</strong> Zebronics Gaming Keyboard and Mouse</p>
+                <p><strong>2nd Place:</strong> Noise Smartwatch</p>
+                <p><strong>3rd Place:</strong> Zebronics Headphones</p>
+                <p>Next 7 Winners: T-shirts as rewards for their participation and achievements.</p>
+            </div>
+            <div>
+                <h3>CodeChef Rewards</h3>
+                <p><strong>Winner:</strong> Pro Subscription for 1 Month<br><strong>2nd & 3rd Place:</strong> 40% discount on yearly subscription.</p>
+                <p>All participants will receive a 30% discount coupon for CodeChef’s yearly subscription.</p>
+            </div>
+        </div>
+
+        <!-- Discount Coupons Section -->
+        <div class="discount-coupons">
+            <h2>Exclusive Discount Coupons</h2>
+            <p>GeeksforGeeks and CodeChef have partnered with us to provide exciting discounts for all participants and winners.</p>
+        </div>
+
+    </section>
+    <!-- Partners and Sponsors Section -->
+    <section class="partners-sponsors">
+        <h1>Our Partners & Sponsors</h1>
+        <div class="partner-box">
+            <div class="partner">
+                <img src="https://github.com/adarsh9554/bandipur-house/blob/main/codechef.png?raw=true" alt="CodeChef">
+                <h3>CodeChef</h3>
+                <p><strong>Platform Partner for Final Round</strong><br>CodeChef, one of the largest coding platforms, will provide the technical infrastructure for the final round.</p>
+            </div>
+            <div class="partner">
+                <img src="https://github.com/adarsh9554/bandipur-house/blob/main/geeks.png?raw=true" alt="GeeksforGeeks">
+                <h3>GeeksforGeeks</h3>
+                <p><strong>Platform Partner for Elimination Round</strong><br>GeeksforGeeks will host the elimination round, curating coding problems and ensuring smooth evaluation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+<section class="contact-us">
+    <h1>Our Team</h1>
+
+    <!-- Team Members Section -->
+    <div class="team-members">
+        <div class="member">
+            <h2>Yuvraj Bhadauriya( Event Head)</h2>
+            <p><strong>Email:</strong> <a href="mailto:24f2001550@ds.study.iitm.ac.in">24f2001550@ds.study.iitm.ac.in</a></p>
+            <h2>Adarsh Maurya( Web Development)</h2>
+            <p><strong>Email:</strong> <a href="mailto:23f3000363@es.study.iitm.ac.in">23f3000363@es.study.iitm.ac.in</a></p>
+            
+        </div>
+
+        <div class="member">
+            <h2>Sanchi Bhatia(Event Co-Head)</h2>
+            <p><strong>Email:</strong> <a href="mailto:24f2000570@ds.study.iitm.ac.in">24f2000570@ds.study.iitm.ac.in</a></p>
+            <h2>Saima Shroff(Design)</h2>
+            <p><strong>Email:</strong> <a href="mailto:24f2000570@ds.study.iitm.ac.in">24f2000570@ds.study.iitm.ac.in</a></p>
+            
+        </div>
+    </div>
+
+    <!-- Organized By Section -->
+    <div class="organized-by">
+        <h2>Organized By</h2>
+        <p>Crack The Code is organized by <strong>Bandipur House, IIT Madras (BS Degree Program).</strong></p>
+        <a href="https://www.iitm.ac.in/" target="_blank">
+            <img src="https://study.iitm.ac.in/ds/assets/img/studentlife/house_logos/01-Bandipur-large.webp" alt="IIT Madras Logo" style="max-width: 200px; height: auto;">
+        </a>
+        <a href="https://www.iitm.ac.in/" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjFMHT0Bqzz9NrdHH4TNnhm3I7bqSDXQdEIA&s" alt="IIT Madras Logo" style="max-width: 200px; height: auto;">
+        </a>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2024 Crack The Code. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
